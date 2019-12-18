@@ -1,23 +1,20 @@
 package microservices.book.socialmultiplication.domain;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-/*
-This is the multiplication class for the application
- */
 @RequiredArgsConstructor
 @Getter
 @Setter
-public final class Multiplication {
+@EqualsAndHashCode
+public final class User {
 
-    // Both factors
-    private final int factorA;
-    private final int factorB;
+    private final String alias;
 
     // Empty constructor for JSON (de)serialization
-    Multiplication() {
-        this(0, 0);
+    protected User(){
+        alias = null;
     }
 }
