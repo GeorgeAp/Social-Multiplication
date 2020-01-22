@@ -34,12 +34,15 @@ final class MultiplicationResultAttemptController {
         return ResponseEntity.ok(attemptCopy);
     }
 
+    /*
     @GetMapping
     ResponseEntity<List<MultiplicationResultAttempt>> getStatistics(@RequestParam("alias") String alias) {
         return ResponseEntity.ok(
-                multiplicationService.getStatsForUser(alias)
+                multiplicationService.checkAttempt(1)
         );
     }
+
+     */
 
 
 }

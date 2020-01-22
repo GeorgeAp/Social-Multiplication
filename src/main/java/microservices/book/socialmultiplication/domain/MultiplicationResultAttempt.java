@@ -13,9 +13,9 @@ public final class MultiplicationResultAttempt {
 
     // Empty constructor for JSON (de)serialization
 
-    MultiplicationResultAttempt(){
-        user = null;
-        multiplication = null;
-        resultAttempt = -1;
+    public MultiplicationResultAttempt(User user, Multiplication multiplication, int resultAttempt, boolean isCorrect){
+        this.user = null;
+        this.multiplication = null;
+        this.resultAttempt = -1;
     }
 }
