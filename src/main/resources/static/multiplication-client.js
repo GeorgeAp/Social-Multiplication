@@ -1,13 +1,18 @@
 function updateMultiplication() {
     $.ajax({
-        url: "http://localhost:8080/multiplications/random"
-    }).then(function(data) {
-        // Cleans the form
-        $("#attempt-form").find( "input[name='result-attempt']" ).val("");
-        $("#attempt-form").find( "input[name='user-alias']" ).val("");
-        // Gets a random challenge from API and loads the data in the HTML
-        $('.multiplication-a').empty().append(data.factorA);
-        $('.multiplication-b').empty().append(data.factorB);
+        url: '/results',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        async: false,
+        success: function(result){
+            if(result.correct) {
+            $('.result-message').empty().append("The result is correct! Congratulations!");
+            } else {
+            $('.result-message').empty().append("Oops that's not correct! But keep trying!");
+            }
+        }
     });
 }
 

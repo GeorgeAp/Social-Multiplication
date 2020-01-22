@@ -8,7 +8,10 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.OPTIONAL;
 import static org.mockito.BDDMockito.given;
 
 public class MultiplicationServiceImplTest {
@@ -22,7 +25,7 @@ public class MultiplicationServiceImplTest {
     public void setUp(){
         // With this call to initMocks we tell Mockito to process the annotations
         MockitoAnnotations.initMocks(this);
-        multiplicationServiceImpl = new MultiplicationServiceImpl(randomGeneratorService);
+        //multiplicationServiceImpl = new MultiplicationServiceImpl(randomGeneratorService);
     }
 
     @Test
@@ -59,6 +62,7 @@ public class MultiplicationServiceImplTest {
         Multiplication multiplication = new Multiplication(50, 60);
         User user = new User("john_doe");
         MultiplicationResultAttempt attempt = new MultiplicationResultAttempt(user, multiplication, 3010);
+        //given(userRepository.findByAlias("John_doe")).willReturn(Optional.empty());
         // when
         boolean attemptResult = multiplicationServiceImpl.checkAttempt(attempt);
         // assert
